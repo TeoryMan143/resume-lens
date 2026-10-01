@@ -1,0 +1,15 @@
+Wednesday Addams
+Contact: wednesday.addams@nevermore.edu | +57 300 123 4567 | (602) 555-0199
+Links: https://github.com/wednesday-a | linkedin.com/in/wednesday
+
+Education:
+B.Sc. in Computer Science, Universidad Icesi (2019 - 2023)
+Master of Science in Artificial Intelligence
+Ingeniería de Sistemas
+
+Experience:
+5+ yrs of experience with REST APIs and microservices.
+
+Technical Skills:
+JavaScript, TypeScript, Java, C++, C#, Vue.js, Angular, Spring Boot,
+MySQL, MongoDB, NoSQL, Docker, RESTful APIs, scikit learn, Tensor Flow, Py Torch.

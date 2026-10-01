@@ -1,0 +1,4 @@
+Mary Jane Watson
+ 2 years of experience developing predictive models and data-processing pipelines.
+Technical Skills:
+ Python, Pandas, NumPy, Scikit-learn, TensorFlow, SQL, Git.
