@@ -20,6 +20,10 @@ from resume_lens.pipeline import ResumeLensPipeline
 
 RESOURCES = Path(__file__).parent / "resources"
 
+
+# --------------------------------------------------------------------------- #
+# Stage 1 scenarios
+# --------------------------------------------------------------------------- #
 @pytest.fixture
 def extractor() -> ResumeExtractor:
     """SC-E1 — extractor with the default pattern set."""
@@ -43,6 +47,10 @@ def full_resume_text() -> str:
     """SC-E4 — résumé with contact data, links, education and many skills."""
     return (RESOURCES / "full_resume.txt").read_text(encoding="utf-8")
 
+
+# --------------------------------------------------------------------------- #
+# Stage 2 scenarios
+# --------------------------------------------------------------------------- #
 @pytest.fixture(scope="session")
 def cleaner() -> CleaningTransducer:
     """SC-N1 — lexical cleaning transducer T_clean."""

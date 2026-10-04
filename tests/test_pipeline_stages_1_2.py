@@ -9,10 +9,10 @@ import json
 
 import pytest
 
+from pathlib import Path
+
 from resume_lens import main
 from resume_lens.normalization import CANONICAL_VARIANTS
-
-from pathlib import Path
 
 RESOURCES = Path(__file__).parent / "resources"
 
@@ -57,9 +57,28 @@ def test_tc_i_05_everything_extracted_is_normalized(pipeline, full_resume_text):
 def test_tc_i_06_cli(capsys, tmp_path):
     json_path = tmp_path / "stage1.json"
     main(["--resume", str(RESOURCES / "wednesday_addams.txt"),
-        "--profile", "FULL_STACK_DEVELOPER", "--out", str(json_path)])
+          "--profile", "FULL_STACK_DEVELOPER", "--out", str(json_path)])
     printed = capsys.readouterr().out
     assert "JAVASCRIPT, REACT, NODE_JS, POSTGRESQL, GIT" in printed
     assert json.loads(json_path.read_text(encoding="utf-8"))["qualifications"] == [
         "JS", "React.js", "NodeJS", "Postgres", "Git",
+    ]
+
+
+def test_tc_i_07_devops_resume(pipeline):
+    text = (RESOURCES / "devops_resume.txt").read_text(encoding="utf-8")
+    out = pipeline.run(text, "DEVOPS_ENGINEER")
+    assert out.extraction.name == "Bruce Wayne"
+    assert out.sorted_qualifications == [
+        "LINUX", "BASH", "GIT", "JENKINS", "GITHUB_ACTIONS", "DOCKER", "KUBERNETES",
+        "TERRAFORM", "AWS", "PROMETHEUS",
+    ]
+
+
+def test_tc_i_08_data_engineer_resume(pipeline):
+    text = (RESOURCES / "data_engineer_resume.txt").read_text(encoding="utf-8")
+    out = pipeline.run(text, "DATA_ENGINEER")
+    assert out.sorted_qualifications == [
+        "PYTHON", "SPARK", "KAFKA", "AIRFLOW", "ETL", "DATA_PIPELINES", "DBT", "SQL",
+        "SNOWFLAKE", "BIGQUERY", "GCP", "GIT",
     ]

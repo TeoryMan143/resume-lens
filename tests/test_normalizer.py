@@ -57,7 +57,7 @@ def test_tc_n_14_unknown_terms(normalizer, raw):
 @pytest.mark.parametrize(
     "raw, canonical",
     [("Java", "JAVA"), ("JavaScript", "JAVASCRIPT"), ("Git", "GIT"), ("GitHub", "GITHUB"),
-    ("SQL", "SQL"), ("MySQL", "MYSQL"), ("NoSQL", "NOSQL"), ("Node", "NODE_JS")],
+     ("SQL", "SQL"), ("MySQL", "MYSQL"), ("NoSQL", "NOSQL"), ("Node", "NODE_JS")],
 )
 def test_tc_n_15_prefixes_are_not_confused(normalizer, raw, canonical):
     assert normalizer.normalize_term(raw) == canonical

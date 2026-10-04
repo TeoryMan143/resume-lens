@@ -166,8 +166,10 @@ DATABASE = RegexPattern(
     _tech(
         r"PostgreSQL|Postgres|MySQL|My[ ]SQL|MariaDB|SQLite|Mongo[ ]?DB|Mongo|Redis"
         r"|Oracle|SQL[ ]?Server|No[ ]?SQL|SQL|Cassandra|DynamoDB|Firebase"
+        r"|Snowflake|Big[ ]?Query"
     ),
-    "Database engines and database families (SQL, NoSQL). 'SQL' is only reported "
+    "Database engines, data warehouses (Snowflake, BigQuery) and database families "
+    "(SQL, NoSQL). 'SQL' is only reported "
     "as a standalone word, never inside 'PostgreSQL', 'MySQL' or 'NoSQL'.",
     re.IGNORECASE,
 )
@@ -175,11 +177,15 @@ DATABASE = RegexPattern(
 TOOL = RegexPattern(
     Category.TOOL,
     _tech(
-        r"Git(?:Hub|Lab)?|Docker|Kubernetes|K8s|AWS|Amazon[ ]Web[ ]Services|Azure|GCP"
-        r"|Linux|Jupyter(?:[ ]Notebooks?)?|Jenkins|Postman|Jira|MLflow|Airflow|Spark|Hadoop"
+        r"GitHub[ ]Actions|Git(?:Hub|Lab)?|Docker|Kubernetes|K8s|AWS|Amazon[ ]Web[ ]Services"
+        r"|Azure|GCP|Google[ ]Cloud(?:[ ]Platform)?|Linux|Bash|Shell[ ]Scripting"
+        r"|Terraform|Ansible|Prometheus|Grafana|Jenkins|Jupyter(?:[ ]Notebooks?)?|Postman|Jira"
+        r"|MLflow|(?:Apache[ ])?(?:Airflow|Spark|Hadoop|Kafka)|PySpark|Databricks|dbt"
     ),
-    "Development tools, version control systems and cloud platforms "
-    "(Git, GitHub, GitLab, Docker, Kubernetes, AWS, Jupyter, ...).",
+    "Development, DevOps and data-engineering tools, version control systems and "
+    "cloud platforms (Git, GitHub Actions, Docker, Kubernetes, Terraform, AWS, "
+    "Apache Spark, Kafka, Airflow, dbt, ...). 'GitHub Actions' is matched before "
+    "'GitHub' so the longer name is kept as one string.",
     re.IGNORECASE,
 )
 
@@ -187,10 +193,11 @@ OTHER_QUALIFICATION = RegexPattern(
     Category.OTHER_QUALIFICATION,
     r"(?<![\w])(?:REST(?:ful)?[ -]?APIs?|GraphQL|Machine[ -]Learning(?:[ ]Models?)?"
     r"|Deep[ -]Learning|Predictive[ ]Models?|Data[ -]Processing(?:[ ]Pipelines?)?"
-    r"|Data[ ]Pipelines?|Microservices|CI/CD)(?![\w])",
+    r"|Data[ ]Pipelines?|Microservices|CI/CD|ETL|ELT|Infrastructure[ ]as[ ]Code|IaC)(?![\w])",
     "Multi-word skills and concepts relevant to the profiles: REST/RESTful API(s), "
     "GraphQL, machine learning (models), deep learning, predictive models, "
-    "data-processing pipelines, microservices and CI/CD.",
+    "data-processing pipelines, microservices, CI/CD, ETL/ELT and "
+    "Infrastructure as Code (IaC).",
     re.IGNORECASE,
 )
 

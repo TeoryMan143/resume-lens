@@ -70,4 +70,4 @@ pyparsing==3.3.3 \
 textx==4.4.0 \
     --hash=sha256:a7b15a4698b503edde631d5227c0d0f6024898a86a7924b5fc741973305f9286 \
     --hash=sha256:f08071316d662d8dbecb0e8322510eeba71e89fa91c69a5278cbebfd1debde42
-    # via resume-lens
+    # via resume-lensw
