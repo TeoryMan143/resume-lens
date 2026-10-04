@@ -1,0 +1,4 @@
+Bruce Wayne
+4 years of experience building cloud infrastructure and deployment pipelines.
+Technical Skills:
+Kubernetes, Terraform, GitHub Actions, Linux, Bash, Docker, AWS, Git, Prometheus, Jenkins.

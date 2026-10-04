@@ -1,0 +1,4 @@
+Selina Kyle
+3 years of experience building data pipelines.
+Technical Skills:
+Airflow, Apache Spark, Kafka, Python, SQL, Snowflake, BigQuery, ETL, dbt, GCP, Git.
