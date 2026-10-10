@@ -1,6 +1,6 @@
 """Stage 3 — Qualification pattern recognition (finite automata)."""
 
-from .automata import AutomatonDefinition, ProfileAutomaton, Trace, set_label
+from .automaton import AutomatonDefinition, ProfileAutomaton, Trace
 from .classifier import (
     ACCEPTED,
     REJECTED,
@@ -8,7 +8,6 @@ from .classifier import (
     ProfileClassifier,
     ProfileVerdict,
 )
-from .models import PatternStage, ProfilePattern
 from .patterns import (
     DATA_ENGINEER_PATTERN,
     DEVOPS_PATTERN,
@@ -16,6 +15,9 @@ from .patterns import (
     MACHINE_LEARNING_PATTERN,
     NAMED_SETS,
     PATTERNS,
+    PatternStage,
+    ProfilePattern,
+    get_pattern,
 )
 
 __all__ = [
@@ -35,5 +37,7 @@ __all__ = [
     "ProfileVerdict",
     "REJECTED",
     "Trace",
+    "get_pattern",
     "set_label",
+    "to_dot",
 ]
