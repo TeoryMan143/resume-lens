@@ -10,6 +10,8 @@ import pytest
 from resume_lens.normalization import CANONICAL_VARIANTS, QualificationTransducer
 from resume_lens.normalization.transducers import EPSILON
 
+
+# -------------------------------------------------------------- T_clean ----
 @pytest.mark.parametrize(
     "raw, cleaned",
     [
@@ -51,6 +53,7 @@ def test_tc_n_04_cleaning_formal_definition(cleaner):
     assert all(target == "q0" for target in m.delta.values())
 
 
+# ---------------------------------------------------------- T_<CANONICAL> ----
 @pytest.mark.parametrize("word", ["react", "reactjs"])
 def test_tc_n_05_react_accepts_variants(react_transducer, word):
     assert react_transducer.translate(word) == "REACT"

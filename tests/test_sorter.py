@@ -10,6 +10,9 @@ from itertools import permutations
 import pytest
 
 from resume_lens.normalization import (
+    CANONICAL_VARIANTS,
+    DATA_ENGINEER,
+    DEVOPS_ENGINEER,
     FULL_STACK_DEVELOPER,
     MACHINE_LEARNING_ENGINEER,
     PROFILES,
@@ -57,3 +60,29 @@ def test_tc_n_28_profile_by_name(sorter):
 @pytest.mark.parametrize("profile", list(PROFILES.values()), ids=list(PROFILES))
 def test_tc_n_29_profile_tokens_are_unique(profile):
     assert len(profile.tokens) == len(set(profile.tokens))
+
+
+def test_tc_n_30_devops_order(sorter):
+    tokens = ["KUBERNETES", "TERRAFORM", "GITHUB_ACTIONS", "LINUX", "DOCKER", "AWS", "GIT", "PROMETHEUS"]
+    assert sorter.sort(tokens, DEVOPS_ENGINEER) == [
+        "LINUX", "GIT", "GITHUB_ACTIONS", "DOCKER", "KUBERNETES", "TERRAFORM", "AWS", "PROMETHEUS",
+    ]
+
+
+def test_tc_n_31_data_engineer_order(sorter):
+    tokens = ["GIT", "SNOWFLAKE", "AIRFLOW", "SQL", "KAFKA", "SPARK", "PYTHON", "GCP"]
+    assert sorter.sort(tokens, DATA_ENGINEER) == [
+        "PYTHON", "SPARK", "KAFKA", "AIRFLOW", "SQL", "SNOWFLAKE", "GCP", "GIT",
+    ]
+
+
+def test_tc_n_32_four_profiles_registered():
+    assert list(PROFILES) == [
+        "FULL_STACK_DEVELOPER", "MACHINE_LEARNING_ENGINEER", "DEVOPS_ENGINEER", "DATA_ENGINEER",
+    ]
+
+
+@pytest.mark.parametrize("profile", list(PROFILES.values()), ids=list(PROFILES))
+def test_tc_n_33_profile_tokens_exist_in_catalog(profile):
+    missing = [t for t in profile.tokens if t not in CANONICAL_VARIANTS]
+    assert missing == []

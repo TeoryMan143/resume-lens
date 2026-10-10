@@ -3,6 +3,8 @@
 from .catalog import CANONICAL_VARIANTS
 from .normalizer import NormalizationResult, QualificationNormalizer
 from .profiles import (
+    DATA_ENGINEER,
+    DEVOPS_ENGINEER,
     FULL_STACK_DEVELOPER,
     MACHINE_LEARNING_ENGINEER,
     PROFILES,
@@ -15,6 +17,8 @@ from .transducers import CleaningTransducer, FormalDefinition, QualificationTran
 __all__ = [
     "CANONICAL_VARIANTS",
     "CleaningTransducer",
+    "DATA_ENGINEER",
+    "DEVOPS_ENGINEER",
     "FULL_STACK_DEVELOPER",
     "FormalDefinition",
     "MACHINE_LEARNING_ENGINEER",

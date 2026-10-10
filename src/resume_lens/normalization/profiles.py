@@ -2,8 +2,10 @@
 
 The order is used to sort the normalized qualifications before they are sent
 to the Stage 3 automata, so the result does not depend on the order in which
-the candidate wrote them.  The two team-defined profiles are added here with
-the same structure.
+the candidate wrote them.
+
+Profiles 1 and 2 are predefined by the assignment; profiles 3 (software
+engineering) and 4 (AI/data) were defined by the team.
 """
 
 from __future__ import annotations
@@ -15,6 +17,7 @@ _DATABASES = (
     "NOSQL", "MONGODB", "REDIS", "CASSANDRA", "DYNAMODB", "FIREBASE",
 )
 _VERSION_CONTROL = ("GIT", "GITHUB", "GITLAB")
+_CLOUD = ("AWS", "AZURE", "GCP")
 
 
 @dataclass(frozen=True)
@@ -60,8 +63,37 @@ MACHINE_LEARNING_ENGINEER = ProfileOrder(
     ),
 )
 
+# Profile 3 (software engineering, defined by the team)
+DEVOPS_ENGINEER = ProfileOrder(
+    "DEVOPS_ENGINEER",
+    (
+        ("OS_SCRIPTING", ("LINUX", "BASH", "PYTHON")),
+        ("VERSION_CONTROL", _VERSION_CONTROL),
+        ("CI_CD", ("CI_CD", "JENKINS", "GITHUB_ACTIONS")),
+        ("CONTAINERS", ("DOCKER", "KUBERNETES")),
+        ("INFRASTRUCTURE_AS_CODE", ("INFRASTRUCTURE_AS_CODE", "TERRAFORM", "ANSIBLE")),
+        ("CLOUD", _CLOUD),
+        ("MONITORING", ("PROMETHEUS", "GRAFANA")),
+    ),
+)
+
+# Profile 4 (AI/data, defined by the team)
+DATA_ENGINEER = ProfileOrder(
+    "DATA_ENGINEER",
+    (
+        ("PROGRAMMING_LANGUAGE", ("PYTHON", "SCALA", "JAVA")),
+        ("DATA_PROCESSING", ("SPARK", "HADOOP", "DATABRICKS", "KAFKA")),
+        ("ORCHESTRATION_ETL", ("AIRFLOW", "ETL", "DATA_PIPELINES", "DBT")),
+        ("DATABASE", _DATABASES),
+        ("DATA_WAREHOUSE", ("SNOWFLAKE", "BIGQUERY")),
+        ("CLOUD", _CLOUD),
+        ("VERSION_CONTROL", _VERSION_CONTROL),
+    ),
+)
+
 PROFILES: dict[str, ProfileOrder] = {
-    p.name: p for p in (FULL_STACK_DEVELOPER, MACHINE_LEARNING_ENGINEER)
+    p.name: p
+    for p in (FULL_STACK_DEVELOPER, MACHINE_LEARNING_ENGINEER, DEVOPS_ENGINEER, DATA_ENGINEER)
 }
 
 
