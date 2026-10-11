@@ -7,10 +7,10 @@ from typing import Iterable, Mapping
 
 from ..normalization import PROFILES, ProfileOrder, QualificationSorter
 from .patterns import PATTERNS, ProfilePattern
-
+from .automaton import ProfileAutomaton
 ACCEPTED = "ACCEPTED"
 REJECTED = "REJECTED"
-from .automaton import ProfileAutomaton
+
 
 @dataclass(frozen=True)
 class ProfileVerdict:
