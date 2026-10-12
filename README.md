@@ -90,7 +90,8 @@ The patterns are defined in [`recognition/patterns.py`](src/resume_lens/recognit
 │   ├── diagrams/                     # Architecture and CLI flow (PlantUML + SVG)
 │   ├── stage3-recognition-automata.md    # Finite automata (Stage 3)
 │   ├── stage4-candidate-profile-language.md  # Grammar and DSL (Stage 4)
-│   └── test-design-*.md              # Test scenarios and cases (stages 1-2, 3, 4)
+│   ├── test-design-*.md              # Test scenarios and cases (stages 1-2, 3, 4)
+│   └── poster.png                    # Project poster
 ├── src/
 │   └── resume_lens/
 │       ├── __init__.py           # Command-line interface (main)
@@ -257,6 +258,8 @@ Each test ID corresponds to a row in the test-design documents in `docs/`.
 
 ## Documentation
 
+The project poster is at [`docs/poster.png`](docs/poster.png).
+
 Design documents are in the `docs/` directory, written in Markdown:
 
 | Document | Content |
@@ -270,6 +273,7 @@ Design documents are in the `docs/` directory, written in Markdown:
 | [`test-design-stage-3.md`](docs/test-design-stage-3.md) | Test scenarios and cases for Stage 3 |
 | [`test-design-stage-4.md`](docs/test-design-stage-4.md) | Test scenarios and cases for Stage 4, the HTML visualization and the command line |
 | [`ai-usage-log.md`](docs/ai-usage-log.md) | Generative AI usage log: prompts, content given to the AI, results and team review |
+| [`poster.png`](docs/poster.png) | Project poster |
 
 All diagrams are written in **PlantUML** (`.puml`) and committed together with their rendered `.svg`, so they display on GitHub and in any Markdown preview. After editing a `.puml` file, render it again with `plantuml -tsvg -charset UTF-8 docs/<folder>/<file>.puml`.
 
