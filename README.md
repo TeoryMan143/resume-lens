@@ -269,6 +269,7 @@ Design documents are in the `docs/` directory, written in Markdown:
 | [`test-design-stages-1-2.md`](docs/test-design-stages-1-2.md) | Test scenarios and cases for Stages 1 and 2 |
 | [`test-design-stage-3.md`](docs/test-design-stage-3.md) | Test scenarios and cases for Stage 3 |
 | [`test-design-stage-4.md`](docs/test-design-stage-4.md) | Test scenarios and cases for Stage 4, the HTML visualization and the command line |
+| [`ai-usage-log.md`](docs/ai-usage-log.md) | Generative AI usage log: prompts, content given to the AI, results and team review |
 
 All diagrams are written in **PlantUML** (`.puml`) and committed together with their rendered `.svg`, so they display on GitHub and in any Markdown preview. After editing a `.puml` file, render it again with `plantuml -tsvg -charset UTF-8 docs/<folder>/<file>.puml`.
 
