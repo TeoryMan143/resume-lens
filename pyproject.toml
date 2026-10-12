@@ -5,18 +5,17 @@ description = "Resume analyzer - Integrative Task for Computación y Estructuras
 readme = "README.md"
 authors = [
     { name = "teoryman143", email = "jonathancortestm143@gmail.com" },
-    { name = "Itshappysad", email="martinez.andres1301@gmail.com" },
-    { name = "NPt214", email="juan.camilo.borrero.florez@gmail.com"}
+    { name = "Itshappysad", email = "martinez.andres1301@gmail.com" },
+    { name = "NPt214", email = "juan.camilo.borrero.florez@gmail.com" },
 ]
 requires-python = ">=3.14"
-dependencies = [
-    "pyformlang>=1.0.11",
-    "textx>=4.4.0",
-]
+dependencies = ["pyformlang>=1.0.11", "textx>=4.4.0"]
 
 [project.scripts]
 resume-lens = "resume_lens:main"
-
 [build-system]
 requires = ["uv_build>=0.12.18,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pytest>=9.1.1"]
