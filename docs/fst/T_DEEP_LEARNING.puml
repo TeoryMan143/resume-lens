@@ -1,0 +1,42 @@
+@startuml T_DEEP_LEARNING
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_DEEP_LEARNING: {deeplearning} → DEEP_LEARNING
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state q6
+state q7
+state q8
+state q9
+state q10
+state q11
+state q12
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : d / ε
+q1 --> q2 : e / ε
+q2 --> q3 : e / ε
+q3 --> q4 : p / ε
+q4 --> q5 : l / ε
+q5 --> q6 : e / ε
+q6 --> q7 : a / ε
+q7 --> q8 : r / ε
+q8 --> q9 : n / ε
+q9 --> q10 : i / ε
+q10 --> q11 : n / ε
+q11 --> q12 : g / ε
+q12 --> qF : ε / DEEP_LEARNING
+qF --> [*]
+@enduml

@@ -1,0 +1,38 @@
+@startuml T_DATABRICKS
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_DATABRICKS: {databricks} → DATABRICKS
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state q6
+state q7
+state q8
+state q9
+state q10
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : d / ε
+q1 --> q2 : a / ε
+q2 --> q3 : t / ε
+q3 --> q4 : a / ε
+q4 --> q5 : b / ε
+q5 --> q6 : r / ε
+q6 --> q7 : i / ε
+q7 --> q8 : c / ε
+q8 --> q9 : k / ε
+q9 --> q10 : s / ε
+q10 --> qF : ε / DATABRICKS
+qF --> [*]
+@enduml

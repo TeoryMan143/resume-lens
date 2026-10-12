@@ -1,0 +1,28 @@
+@startuml T_FLASK
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_FLASK: {flask} → FLASK
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : f / ε
+q1 --> q2 : l / ε
+q2 --> q3 : a / ε
+q3 --> q4 : s / ε
+q4 --> q5 : k / ε
+q5 --> qF : ε / FLASK
+qF --> [*]
+@enduml

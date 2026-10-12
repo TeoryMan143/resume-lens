@@ -1,0 +1,96 @@
+@startuml T_ML_MODEL_DEVELOPMENT
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_ML_MODEL_DEVELOPMENT: {machinelearning, machinelearningmodel, machinelearningmodels, predictivemodel, predictivemodels} → ML_MODEL_DEVELOPMENT
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state q6
+state q7
+state q8
+state q9
+state q10
+state q11
+state q12
+state q13
+state q14
+state q15
+state q16
+state q17
+state q18
+state q19
+state q20
+state q21
+state q22
+state q23
+state q24
+state q25
+state q26
+state q27
+state q28
+state q29
+state q30
+state q31
+state q32
+state q33
+state q34
+state q35
+state q36
+state q37
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : m / ε
+q0 --> q22 : p / ε
+q1 --> q2 : a / ε
+q2 --> q3 : c / ε
+q3 --> q4 : h / ε
+q4 --> q5 : i / ε
+q5 --> q6 : n / ε
+q6 --> q7 : e / ε
+q7 --> q8 : l / ε
+q8 --> q9 : e / ε
+q9 --> q10 : a / ε
+q10 --> q11 : r / ε
+q11 --> q12 : n / ε
+q12 --> q13 : i / ε
+q13 --> q14 : n / ε
+q14 --> q15 : g / ε
+q15 --> q16 : m / ε
+q15 --> qF : ε / ML_MODEL_DEVELOPMENT
+q16 --> q17 : o / ε
+q17 --> q18 : d / ε
+q18 --> q19 : e / ε
+q19 --> q20 : l / ε
+q20 --> q21 : s / ε
+q20 --> qF : ε / ML_MODEL_DEVELOPMENT
+q21 --> qF : ε / ML_MODEL_DEVELOPMENT
+q22 --> q23 : r / ε
+q23 --> q24 : e / ε
+q24 --> q25 : d / ε
+q25 --> q26 : i / ε
+q26 --> q27 : c / ε
+q27 --> q28 : t / ε
+q28 --> q29 : i / ε
+q29 --> q30 : v / ε
+q30 --> q31 : e / ε
+q31 --> q32 : m / ε
+q32 --> q33 : o / ε
+q33 --> q34 : d / ε
+q34 --> q35 : e / ε
+q35 --> q36 : l / ε
+q36 --> q37 : s / ε
+q36 --> qF : ε / ML_MODEL_DEVELOPMENT
+q37 --> qF : ε / ML_MODEL_DEVELOPMENT
+qF --> [*]
+@enduml

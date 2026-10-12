@@ -1,0 +1,57 @@
+@startuml T_AIRFLOW
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_AIRFLOW: {airflow, apacheairflow} → AIRFLOW
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state q6
+state q7
+state q8
+state q9
+state q10
+state q11
+state q12
+state q13
+state q14
+state q15
+state q16
+state q17
+state q18
+state q19
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : a / ε
+q1 --> q2 : i / ε
+q1 --> q8 : p / ε
+q2 --> q3 : r / ε
+q3 --> q4 : f / ε
+q4 --> q5 : l / ε
+q5 --> q6 : o / ε
+q6 --> q7 : w / ε
+q7 --> qF : ε / AIRFLOW
+q8 --> q9 : a / ε
+q9 --> q10 : c / ε
+q10 --> q11 : h / ε
+q11 --> q12 : e / ε
+q12 --> q13 : a / ε
+q13 --> q14 : i / ε
+q14 --> q15 : r / ε
+q15 --> q16 : f / ε
+q16 --> q17 : l / ε
+q17 --> q18 : o / ε
+q18 --> q19 : w / ε
+q19 --> qF : ε / AIRFLOW
+qF --> [*]
+@enduml

@@ -1,0 +1,44 @@
+@startuml T_GITHUB_ACTIONS
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_GITHUB_ACTIONS: {githubactions} → GITHUB_ACTIONS
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state q6
+state q7
+state q8
+state q9
+state q10
+state q11
+state q12
+state q13
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : g / ε
+q1 --> q2 : i / ε
+q2 --> q3 : t / ε
+q3 --> q4 : h / ε
+q4 --> q5 : u / ε
+q5 --> q6 : b / ε
+q6 --> q7 : a / ε
+q7 --> q8 : c / ε
+q8 --> q9 : t / ε
+q9 --> q10 : i / ε
+q10 --> q11 : o / ε
+q11 --> q12 : n / ε
+q12 --> q13 : s / ε
+q13 --> qF : ε / GITHUB_ACTIONS
+qF --> [*]
+@enduml

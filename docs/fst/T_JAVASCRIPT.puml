@@ -1,0 +1,67 @@
+@startuml T_JAVASCRIPT
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_JAVASCRIPT: {ecmascript, es6, javascript, js} → JAVASCRIPT
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state q6
+state q7
+state q8
+state q9
+state q10
+state q11
+state q12
+state q13
+state q14
+state q15
+state q16
+state q17
+state q18
+state q19
+state q20
+state q21
+state q22
+state q23
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : e / ε
+q0 --> q13 : j / ε
+q1 --> q2 : c / ε
+q1 --> q11 : s / ε
+q2 --> q3 : m / ε
+q3 --> q4 : a / ε
+q4 --> q5 : s / ε
+q5 --> q6 : c / ε
+q6 --> q7 : r / ε
+q7 --> q8 : i / ε
+q8 --> q9 : p / ε
+q9 --> q10 : t / ε
+q10 --> qF : ε / JAVASCRIPT
+q11 --> q12 : 6 / ε
+q12 --> qF : ε / JAVASCRIPT
+q13 --> q14 : a / ε
+q13 --> q23 : s / ε
+q14 --> q15 : v / ε
+q15 --> q16 : a / ε
+q16 --> q17 : s / ε
+q17 --> q18 : c / ε
+q18 --> q19 : r / ε
+q19 --> q20 : i / ε
+q20 --> q21 : p / ε
+q21 --> q22 : t / ε
+q22 --> qF : ε / JAVASCRIPT
+q23 --> qF : ε / JAVASCRIPT
+qF --> [*]
+@enduml
