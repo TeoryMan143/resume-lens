@@ -185,3 +185,23 @@ def test_tc_e_26_every_pattern_is_documented():
         assert pattern.description.strip()
         assert pattern.compiled.pattern == pattern.expression
 
+
+
+# --------------------------------------------------- all-caps names, links ----
+def test_tc_e_27_name_all_caps(extractor):
+    text = (RESOURCES / "good.txt").read_text(encoding="utf-8")
+    assert extractor.extract_name(text) == "Alex Morgan"
+
+
+@pytest.mark.parametrize("header", ["TECHNICAL SKILLS", "WORK EXPERIENCE", "CURRICULUM VITAE"])
+def test_tc_e_28_all_caps_header_is_not_a_name(extractor, header):
+    assert extractor.extract_name(f"{header}\nAda Lovelace\nPython, Git.") == "Ada Lovelace"
+    assert extractor.extract_name(f"{header}\nPython, Git.") is None
+
+
+def test_tc_e_29_same_link_is_kept_once(extractor):
+    text = ("github.com/amorgan-dev | https://www.GitHub.com/amorgan-dev/ | "
+            "linkedin.com/in/amorgan | github.com/amorgan-dev-2")
+    assert extractor.extract_links(text) == [
+        "github.com/amorgan-dev", "linkedin.com/in/amorgan", "github.com/amorgan-dev-2",
+    ]

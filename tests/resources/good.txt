@@ -1,0 +1,63 @@
+ALEX MORGAN
+Full Stack Developer
+Austin, TX | alex.morgan@email.com | (555) 123-4567
+github.com/amorgan-dev | linkedin.com/in/alexmorgan-dev | alexmorgan.dev
+ 
+----------------------------------------------------------
+SUMMARY
+----------------------------------------------------------
+Full stack developer with 5 years of experience building and scaling
+SaaS products using TypeScript, React, Node.js, and PostgreSQL.
+Shipped features used by 200K+ monthly users. Strong focus on
+performance, testing, and clean API design.
+ 
+----------------------------------------------------------
+TECHNICAL SKILLS
+----------------------------------------------------------
+Languages:   TypeScript, JavaScript, Python, SQL, Java
+Frontend:    React, Next.js, Redux, Tailwind CSS, Jest, Cypress
+Backend:     Node.js, Express, NestJS, REST, GraphQL, Spring Boot
+Data:        PostgreSQL, Redis, MongoDB, Prisma
+DevOps:      Docker, AWS (EC2, S3, RDS, Lambda), GitHub Actions, Terraform
+ 
+----------------------------------------------------------
+EXPERIENCE
+----------------------------------------------------------
+Software Engineer II | Bright Cart Inc. | Austin, TX
+Mar 2022 - Present
+- Led migration of a legacy checkout flow from jQuery to React/Next.js,
+  cutting page load time by 48% and lifting conversion by 11%.
+- Designed and built a REST + GraphQL API layer (NestJS, PostgreSQL)
+  serving 3M requests/day with a p95 latency under 120 ms.
+- Introduced integration testing with Cypress and Jest, raising code
+  coverage from 31% to 82% and reducing production bugs by 35%.
+- Built CI/CD pipelines in GitHub Actions that cut deploy time from
+  25 minutes to 6 minutes.
+- Mentored 3 junior developers through code reviews and pairing.
+ 
+Full Stack Developer | Northwind Labs | Remote
+Jun 2020 - Feb 2022
+- Built an internal analytics dashboard (React, Node.js, PostgreSQL)
+  adopted by 4 departments, saving ~15 hours/week of manual reporting.
+- Optimized slow SQL queries and added Redis caching, reducing
+  dashboard load time from 9s to 1.2s.
+- Implemented OAuth2/JWT authentication and role-based access control.
+- Containerized services with Docker and deployed to AWS ECS.
+ 
+----------------------------------------------------------
+PROJECTS
+----------------------------------------------------------
+TaskFlow (open source) | github.com/amorgan-dev/taskflow
+- Kanban app with real-time collaboration (WebSockets, React, Node.js).
+- 900+ GitHub stars; 25 external contributors.
+ 
+----------------------------------------------------------
+EDUCATION
+----------------------------------------------------------
+B.S. Computer Science | University of Texas at Austin | 2020
+Relevant coursework: Algorithms, Databases, Distributed Systems
+ 
+----------------------------------------------------------
+CERTIFICATIONS
+----------------------------------------------------------
+AWS Certified Developer - Associate (2023)
