@@ -33,7 +33,7 @@ VARIANTS = [
     "resume, old, new, profile, missing",
     [pytest.param(*case[1:], id=case[0]) for case in VARIANTS],
 )
-def test_tc_r_30_removing_or_replacing_a_skill_changes_the_verdict(
+def test_tc_r_25_removing_or_replacing_a_skill_changes_the_verdict(
     request, classify, resume, old, new, profile, missing
 ):
     text = request.getfixturevalue(resume)
@@ -43,7 +43,7 @@ def test_tc_r_30_removing_or_replacing_a_skill_changes_the_verdict(
     assert verdict.status == (ACCEPTED if missing is None else REJECTED)
 
 
-def test_tc_r_31_a_resume_can_satisfy_two_profiles(classify, wednesday_text, mary_jane_text):
+def test_tc_r_26_a_resume_can_satisfy_two_profiles(classify, wednesday_text, mary_jane_text):
     # Wednesday's web skills and Mary Jane's machine-learning skills in one résumé.
     result = classify(wednesday_text + "\n" + mary_jane_text)
     assert result.accepted_profiles == [FS, ML]
