@@ -16,6 +16,14 @@ from resume_lens.normalization import (
     QualificationSorter,
     QualificationTransducer,
 )
+
+from resume_lens.recognition import (
+    PATTERNS,
+    ClassificationResult,
+    ProfileAutomaton,
+    ProfileClassifier,
+)
+
 from resume_lens.pipeline import ResumeLensPipeline
 
 RESOURCES = Path(__file__).parent / "resources"
@@ -87,3 +95,29 @@ def sorter() -> QualificationSorter:
 def pipeline() -> ResumeLensPipeline:
     """SC-I1 — Stage 1 + Stage 2 chained."""
     return ResumeLensPipeline()
+
+# --------------------------------------------------------------------------- #
+# Stage 3 scenarios
+# --------------------------------------------------------------------------- #
+
+@pytest.fixture(scope="session")
+def classifier() -> ProfileClassifier:
+    """SC-R1 — classifier with the four profile automata."""
+    return ProfileClassifier()
+
+
+@pytest.fixture(scope="session")
+def automata() -> dict[str, ProfileAutomaton]:
+    """SC-R2 — one DFA per profile, built from the declarative patterns."""
+    return {name: ProfileAutomaton(pattern) for name, pattern in PATTERNS.items()}
+
+
+@pytest.fixture(scope="session")
+def classify(pipeline, classifier) -> Callable[[str], ClassificationResult]:
+    """SC-R3 — résumé text through Stage 1, Stage 2 and the Stage 3 classifier."""
+
+    def _classify(text: str) -> ClassificationResult:
+        tokens = pipeline.run(text, "FULL_STACK_DEVELOPER").normalization.canonical
+        return classifier.classify(tokens)
+
+    return _classify
