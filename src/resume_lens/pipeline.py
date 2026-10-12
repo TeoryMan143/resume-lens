@@ -5,7 +5,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .extraction import ExtractionResult, ResumeExtractor
-from .normalization import NormalizationResult, QualificationNormalizer, QualificationSorter
+from .normalization import (
+    NormalizationResult,
+    QualificationNormalizer,
+    QualificationSorter,
+)
 
 
 @dataclass
