@@ -73,11 +73,19 @@ def _tech(alternatives: str) -> str:
 # ---------------------------------------------------------------------------
 # Contact / personal information
 # ---------------------------------------------------------------------------
+# Words that start all-caps section headers ("TECHNICAL SKILLS", "WORK EXPERIENCE").
+_HEADER_WORDS = (
+    r"TECHNICAL|PROFESSIONAL|WORK|KEY|CORE|SKILLS?|EXPERIENCE|EDUCATION|CONTACT|PERSONAL"
+    r"|CURRICULUM|RESUME|PROJECTS?|CERTIFICATIONS?|SUMMARY|PROFILE|OBJECTIVE|ACADEMIC"
+)
 NAME = RegexPattern(
     Category.NAME,
-    r"^[ \t]*(?P<name>[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:[ \t]+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3})[ \t]*$",
-    "A line made only of 2 to 4 capitalised words (e.g. 'Mary Jane Watson'). "
-    "Only the first matching line of the résumé is taken as the candidate name.",
+    r"^[ \t]*(?P<name>[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:[ \t]+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+){1,3}"
+    rf"|(?!(?:{_HEADER_WORDS})\b)[A-ZÁÉÍÓÚÑ]{{2,}}(?:[ \t]+[A-ZÁÉÍÓÚÑ]{{2,}}){{1,3}})[ \t]*$",
+    "A line made only of 2 to 4 capitalised words (e.g. 'Mary Jane Watson') or of 2 to 4 "
+    "all-caps words (e.g. 'ALEX MORGAN') that do not start like a section header "
+    "('TECHNICAL SKILLS', 'WORK EXPERIENCE', ...). Only the first matching line of the "
+    "résumé is taken as the candidate name; an all-caps name is returned in title case.",
     re.MULTILINE,
 )
 

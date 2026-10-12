@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from .models import Experience, ExtractedItem, ExtractionResult
@@ -17,7 +18,10 @@ class ResumeExtractor:
     # -- single-category helpers --------------------------------------------
     def extract_name(self, text: str) -> str | None:
         match = self.patterns[Category.NAME].compiled.search(text)
-        return match.group("name") if match else None
+        if not match:
+            return None
+        name = match.group("name")
+        return name.title() if name.isupper() else name
 
     def extract_emails(self, text: str) -> list[str]:
         return self._distinct(Category.EMAIL, text)
@@ -26,7 +30,13 @@ class ResumeExtractor:
         return self._distinct(Category.PHONE, text)
 
     def extract_links(self, text: str) -> list[str]:
-        return self._distinct(Category.LINK, text)
+        """Distinct profile URLs; scheme, 'www.', letter case and a trailing '/' are
+        ignored when comparing, and the first spelling is kept."""
+        seen: dict[str, str] = {}
+        for link in self._distinct(Category.LINK, text):
+            key = re.sub(r"^(?:https?://)?(?:www\.)?", "", link, flags=re.IGNORECASE)
+            seen.setdefault(key.rstrip("/").lower(), link)
+        return list(seen.values())
 
     def extract_degrees(self, text: str) -> list[str]:
         return [d.strip() for d in self._distinct(Category.DEGREE, text)]
