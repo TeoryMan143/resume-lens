@@ -1,6 +1,6 @@
 # Stage 2 — Qualification Normalization with Finite-State Transducers
 
-> Generated from the code by `python -m resume_lens.normalization.docgen`. Do not edit by hand: change `catalog.py` / `profiles.py` and regenerate. Diagrams are PlantUML files in [`fst/`](fst/).
+> Written from `src/resume_lens/normalization/catalog.py` and `profiles.py` (80 canonical qualifications, 144 variants). If the catalogue changes, update sections 7–8 and the diagram of the new transducer. Diagrams are PlantUML files (with rendered SVG) in [`fst/`](fst/).
 
 **Contents**
 

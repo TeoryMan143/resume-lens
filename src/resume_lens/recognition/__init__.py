@@ -38,6 +38,4 @@ __all__ = [
     "REJECTED",
     "Trace",
     "get_pattern",
-    "set_label",
-    "to_dot",
 ]

@@ -1,0 +1,23 @@
+@startuml normalization-cascade
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam rectangle {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title Stage 2 normalization cascade: normalize(x) = N(h(x))
+
+rectangle "Stage 1 string x\n<i>e.g. Node.js</i>" as X
+rectangle "<b>T_clean</b>\ncase folding and\nseparator removal\nh(x) = nodejs" as C
+rectangle "<b>T_norm</b> = T_1 ∪ … ∪ T_80\n(one transducer per\ncanonical qualification)" as N
+rectangle "canonical token\n<b>NODE_JS</b>" as Y #E8F5E9
+rectangle "unrecognized" as U #FBE9E7
+rectangle "sort by profile order\n(section 6)" as S
+
+X --> C
+C --> N
+N --> Y : accepted by T_NODE_JS
+N --> U : no T_i accepts h(x)
+Y --> S
+@enduml
