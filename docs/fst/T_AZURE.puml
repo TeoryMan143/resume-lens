@@ -1,0 +1,28 @@
+@startuml T_AZURE
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_AZURE: {azure} → AZURE
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : a / ε
+q1 --> q2 : z / ε
+q2 --> q3 : u / ε
+q3 --> q4 : r / ε
+q4 --> q5 : e / ε
+q5 --> qF : ε / AZURE
+qF --> [*]
+@enduml

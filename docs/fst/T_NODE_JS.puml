@@ -1,0 +1,31 @@
+@startuml T_NODE_JS
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_NODE_JS: {node, nodejs} → NODE_JS
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state q6
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : n / ε
+q1 --> q2 : o / ε
+q2 --> q3 : d / ε
+q3 --> q4 : e / ε
+q4 --> q5 : j / ε
+q4 --> qF : ε / NODE_JS
+q5 --> q6 : s / ε
+q6 --> qF : ε / NODE_JS
+qF --> [*]
+@enduml

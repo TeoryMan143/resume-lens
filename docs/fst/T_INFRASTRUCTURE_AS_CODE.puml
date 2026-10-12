@@ -1,0 +1,63 @@
+@startuml T_INFRASTRUCTURE_AS_CODE
+hide empty description
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam state {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title T_INFRASTRUCTURE_AS_CODE: {iac, infrastructureascode} → INFRASTRUCTURE_AS_CODE
+
+state q0
+state q1
+state q2
+state q3
+state q4
+state q5
+state q6
+state q7
+state q8
+state q9
+state q10
+state q11
+state q12
+state q13
+state q14
+state q15
+state q16
+state q17
+state q18
+state q19
+state q20
+state q21
+state q22
+state qF #E8F5E9 ##[bold]2E7D32
+
+[*] --> q0
+q0 --> q1 : i / ε
+q1 --> q2 : a / ε
+q1 --> q4 : n / ε
+q2 --> q3 : c / ε
+q3 --> qF : ε / INFRASTRUCTURE_AS_CODE
+q4 --> q5 : f / ε
+q5 --> q6 : r / ε
+q6 --> q7 : a / ε
+q7 --> q8 : s / ε
+q8 --> q9 : t / ε
+q9 --> q10 : r / ε
+q10 --> q11 : u / ε
+q11 --> q12 : c / ε
+q12 --> q13 : t / ε
+q13 --> q14 : u / ε
+q14 --> q15 : r / ε
+q15 --> q16 : e / ε
+q16 --> q17 : a / ε
+q17 --> q18 : s / ε
+q18 --> q19 : c / ε
+q19 --> q20 : o / ε
+q20 --> q21 : d / ε
+q21 --> q22 : e / ε
+q22 --> qF : ε / INFRASTRUCTURE_AS_CODE
+qF --> [*]
+@enduml
