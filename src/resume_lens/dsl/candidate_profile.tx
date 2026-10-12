@@ -1,0 +1,119 @@
+/*
+  ResumeLens Candidate Profile Language (CPL) — Stage 4.
+
+  A CPL document describes ONE candidate with the information produced by the
+  previous stages of the pipeline:
+
+    candidate "<name>" {          <- Stage 1 (NAME regex)
+        contact { ... }           <- Stage 1 (EMAIL, PHONE, LINK regexes)
+        education { ... }         <- Stage 1 (DEGREE regex)
+        experience { ... }        <- Stage 1 (EXPERIENCE regex)
+        skills { ... }            <- Stage 1 categories + Stage 2 canonical tokens
+        classification { ... }    <- Stage 3 verdict of every profile automaton
+    }
+
+  Non-terminals start with an upper-case letter (CandidateProfile, Skill, ...).
+  Terminals are the quoted keywords/punctuation ('candidate', '{', ':', ...)
+  and the regular-expression match rules at the end of the file.
+*/
+
+CandidateProfile:
+    'candidate' name=PersonName '{'
+        contact=ContactSection?
+        education=EducationSection?
+        experience=ExperienceSection?
+        skills=SkillsSection
+        classification=ClassificationSection
+    '}'
+;
+
+// ---------------------------------------------------------------- contact --
+ContactSection:
+    'contact' '{' entries+=ContactEntry '}'
+;
+
+ContactEntry:
+    EmailEntry | PhoneEntry | LinkEntry
+;
+
+EmailEntry: 'email' value=EmailAddress;
+PhoneEntry: 'phone' value=PhoneNumber;
+LinkEntry:  'link'  value=Url;
+
+// -------------------------------------------------------------- education --
+EducationSection:
+    'education' '{' degrees+=Degree '}'
+;
+
+Degree:
+    'degree' title=STRING
+;
+
+// ------------------------------------------------------------- experience --
+ExperienceSection:
+    'experience' '{' entries+=ExperienceEntry '}'
+;
+
+ExperienceEntry:
+    years=INT ('years' | 'year') field=STRING?
+;
+
+// ----------------------------------------------------------------- skills --
+SkillsSection:
+    'skills' '{'
+        groups*=SkillGroup
+        unrecognized=UnrecognizedGroup?
+    '}'
+;
+
+SkillGroup:
+    category=SkillCategory ':' skills+=Skill[','] ';'
+;
+
+// The categories of the Stage 1 regular expressions (extraction.Category).
+SkillCategory:
+    'programming_language' | 'framework_library' | 'database' | 'tool'
+    | 'other_qualification'
+;
+
+// A canonical token (Stage 2 output) and the surface forms it came from.
+Skill:
+    token=CanonicalToken ('(' aliases+=STRING[','] ')')?
+;
+
+// Strings extracted in Stage 1 that no Stage 2 transducer accepted.
+UnrecognizedGroup:
+    'unrecognized' ':' values+=STRING[','] ';'
+;
+
+// --------------------------------------------------------- classification --
+ClassificationSection:
+    'classification' '{' verdicts+=Verdict '}'
+;
+
+Verdict:
+    AcceptedVerdict | RejectedVerdict
+;
+
+// ACCEPTED: the sequence read by the profile automaton (sorted + projected).
+AcceptedVerdict:
+    profile=ProfileName ':' status='ACCEPTED' 'via' sequence+=CanonicalToken[','] ';'
+;
+
+// REJECTED: optionally, the first pattern stage that was not satisfied.
+RejectedVerdict:
+    profile=ProfileName ':' status='REJECTED' ('missing' missing=StageName)? ';'
+;
+
+// ------------------------------------------------- lexical rules (terminals)
+CanonicalToken: /[A-Z][A-Z0-9_]*/;
+ProfileName:    /[A-Z][A-Z0-9_]*/;
+StageName:      /[A-Z][A-Z0-9_]*/;
+
+// Quoted literals with a restricted shape; the quotes are removed after parsing.
+PersonName:   /"[^\W\d_][^"\d\n]*"/;
+EmailAddress: /"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}"/;
+PhoneNumber:  /"\+?[0-9() .\-]{7,24}"/;
+Url:          /"(https?:\/\/)?(www\.)?[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}(\/[A-Za-z0-9._~\-\/]*)?"/;
+
+Comment: /\/\/.*$/;
