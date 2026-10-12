@@ -1,0 +1,33 @@
+@startuml cli-flow
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+title Command line: python main.py ~--resume ... ~--profile ...
+
+start
+:parse arguments\n~--resume ~--profile ~--out ~--cpl ~--html;
+if (valid arguments?) then (no)
+  :usage error;
+  stop
+endif
+:ResumeLensPipeline.run\n<b>Stages 1 + 2</b>;
+if (~--out?) then (yes)
+  :save Stage 1 JSON;
+endif
+:print Stage 1 and Stage 2 results;
+:ProfileClassifier.classify\n<b>Stage 3</b>, print verdict;
+:CandidateProfileProcessor.process\n<b>Stage 4</b>;
+if (profile valid?) then (no)
+  :print error;
+  :exit code 1;
+  stop
+endif
+:print candidate profile (CPL);
+if (~--cpl?) then (yes)
+  :save profile.cpl;
+endif
+if (~--html?) then (yes)
+  :save HTML page;
+endif
+:exit code 0;
+stop
+@enduml

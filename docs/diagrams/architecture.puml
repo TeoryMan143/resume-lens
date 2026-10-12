@@ -1,0 +1,29 @@
+@startuml architecture
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+skinparam rectangle {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+title ResumeLens architecture: one pipeline for the four profiles
+
+file "résumé .txt" as TXT
+rectangle "<b>extraction</b>\nResumeExtractor\n<i>regular expressions</i>" as E
+rectangle "<b>normalization</b>\nQualificationNormalizer\n<i>finite-state transducers</i>" as N
+rectangle "<b>recognition</b>\nProfileClassifier\n<i>DFAs, one per profile</i>" as R
+rectangle "<b>dsl</b>\nCandidateProfileProcessor\n<i>context-free grammar (textX)</i>" as D
+rectangle "<b>ProfileHtmlRenderer</b>\nHTML page" as H
+file "stage1.json" as JSON
+file "profile.cpl" as CPL
+
+TXT --> E
+E --> N : ExtractionResult
+N --> R : NormalizationResult
+E --> D : ExtractionResult
+N --> D : NormalizationResult
+R --> D : ClassificationResult
+D --> H : CandidateProfile
+D --> CPL : --cpl
+E ..> JSON : --out
+@enduml
