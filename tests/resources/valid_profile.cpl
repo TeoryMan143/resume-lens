@@ -1,0 +1,30 @@
+// Hand-written candidate profile that uses every construct of the language.
+candidate "Peter Benjamin Parker" {
+    contact {
+        email "peter.parker@dailybugle.com"
+        phone "+1 (212) 555-0147"
+        link "https://github.com/peter-parker"
+    }
+    education {
+        degree "B.Sc. in Computer Science"
+        degree "Master of Science in Artificial Intelligence"
+    }
+    experience {
+        1 year "as an intern"
+        4 years "developing web applications"
+        2 years
+    }
+    skills {
+        programming_language: JAVASCRIPT ("JS", "JavaScript"), PYTHON ("Python");
+        framework_library: REACT ("React.js"), NODE_JS ("Node.js"), PANDAS ("Pandas"), NUMPY;
+        database: POSTGRESQL ("Postgres");
+        tool: GIT ("Git");
+        unrecognized: "web slinging", "photography";
+    }
+    classification {
+        FULL_STACK_DEVELOPER: ACCEPTED via JAVASCRIPT, REACT, NODE_JS, POSTGRESQL, GIT;
+        MACHINE_LEARNING_ENGINEER: REJECTED missing ML_FRAMEWORK; // no Scikit-learn, TensorFlow or PyTorch
+        DEVOPS_ENGINEER: REJECTED missing OS_SCRIPTING;
+        DATA_ENGINEER: REJECTED;
+    }
+}
